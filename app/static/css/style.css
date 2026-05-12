@@ -1,0 +1,146 @@
+:root {
+  /* Surfaces & backgrounds */
+  --color-bg:            #fafafa;
+  --color-surface:       #ffffff;
+  --color-subtle:        #f1f5f9;
+  --color-border:        #e2e8f0;
+  --color-border-strong: #cbd5e1;
+
+  /* Text */
+  --color-text:          #0f172a;
+  --color-text-muted:    #475569;
+  --color-text-faint:    #94a3b8;
+
+  /* Brand */
+  --color-brand:         #1e293b;
+  --color-brand-hover:   #0f172a;
+  --color-brand-text:    #ffffff;
+
+  /* Semantic */
+  --color-success:       #16a34a;
+  --color-danger:        #dc2626;
+  --color-warning:       #d97706;
+  --color-info:          #2563eb;
+
+  /* Spacing — 4px base scale */
+  --space-1: 4px;   --space-2: 8px;
+  --space-3: 12px;  --space-4: 16px;
+  --space-5: 24px;  --space-6: 32px;
+  --space-7: 48px;  --space-8: 64px;
+
+  /* Border radii */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --text-xs:   12px;
+  --text-sm:   13px;
+  --text-base: 14px;
+  --text-lg:   16px;
+  --text-xl:   18px;
+  --text-2xl:  22px;
+
+  /* Layout */
+  --container-width: 1100px;
+}
+
+
+/* ───────── 2. Reset ───────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ───────── 3. Base elements ───────── */
+html {
+  font-size: var(--text-base);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-info);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+h1, h2, h3, h4 { font-weight: 500; line-height: 1.3; }
+h1 { font-size: var(--text-2xl); }
+h2 { font-size: var(--text-xl); }
+h3 { font-size: var(--text-lg); }
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+
+/* ───────── 4. Layout primitives ───────── */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+.stack > * + * { margin-top: var(--space-4); }
+.stack-tight > * + * { margin-top: var(--space-2); }
+
+
+/* ───────── 5. Components ─────────*/
+
+.app-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-3) 0;
+}
+
+.app-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-header__brand {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.app-main {
+  padding: var(--space-6) 0;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+
+.card__title {
+  margin-bottom: var(--space-2);
+}
+
+.card__body {
+  color: var(--color-text-muted);
+}
+
+
+/* ───────── 6. Utilities ───────── */
+.text-muted { color: var(--color-text-muted); }
+.text-faint { color: var(--color-text-faint); }
+.text-sm    { font-size: var(--text-sm); }
+.mt-4       { margin-top: var(--space-4); }
+.mt-6       { margin-top: var(--space-6); }

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome — {{ app_name }}{% endblock %}
+
+{% block content %}
+  <div class="stack">
+    <h1>Welcome to {{ app_name }}</h1>
+    <p class="text-muted">
+      The foundation is in place. Configuration, database, templates, and static
+      files are all wired up.
+    </p>
+
+    <div class="card mt-6">
+      <h3 class="card__title">What's working</h3>
+      <div class="card__body stack-tight text-sm">
+        <p>✓ FastAPI is serving requests</p>
+        <p>✓ Jinja2 templates are rendering</p>
+        <p>✓ The design system CSS is loaded</p>
+        <p>✓ Postgres is connected and accepting queries</p>
+      </div>
+    </div>
+
+    <p class="text-faint text-sm mt-4">
+      Next: authentication, then role-based access control.
+    </p>
+  </div>
+{% endblock %}
