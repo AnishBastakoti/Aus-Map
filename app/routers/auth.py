@@ -16,7 +16,7 @@ from app.auth.sessions import (
     destroy_session_by_signed_cookie,
 )
 from app.auth.csrf import generate_csrf_token, verify_csrf_token
-
+from app.utils.templating import template_globals
 
 router = APIRouter()
 
@@ -48,12 +48,7 @@ async def login_form(request: Request) -> HTMLResponse:
     return templates.TemplateResponse(
         request=request,
         name="auth/login.html",
-        context={
-            "app_name": settings.app_name,
-            "csrf_token": "",  # placeholder; not validated on this form
-            "email": None,
-            "error": None,
-        },
+        context=template_globals(request) | {"email": "", "error": ""},
     )
 
 
@@ -139,10 +134,5 @@ def _render_login_with_error(request: Request, email: str, error: str) -> HTMLRe
         request=request,
         name="auth/login.html",
         status_code=status.HTTP_400_BAD_REQUEST,
-        context={
-            "app_name": settings.app_name,
-            "csrf_token": "",
-            "email": email,
-            "error": error,
-        },
+        context=template_globals(request) | {"email": email, "error": error},
     )

@@ -120,6 +120,7 @@ code, pre {
 
 .app-main {
   padding: var(--space-6) 0;
+  background: var(--color-border);
 }
 
 .card {

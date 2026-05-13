@@ -16,7 +16,7 @@
       <a href="/" class="app-header__brand">{{ app_name }}</a>
       <nav class="text-sm">
         {% if user %}
-          <span class="text-muted">{{ user.email }}</span>
+          <span class="text-muted">{{ user.full_name or user.email.split('@')[0] }}</span>
           <form method="POST" action="/logout" class="logout-form">
             <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
             <button type="submit" class="btn-link">Sign out</button>
