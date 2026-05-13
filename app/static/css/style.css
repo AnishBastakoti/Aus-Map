@@ -50,7 +50,7 @@
 }
 
 
-/* ───────── 2. Reset ───────── */
+/* ───────── Reset ───────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -58,7 +58,7 @@
 }
 
 
-/* ───────── 3. Base elements ───────── */
+/* ───────── Base elements ───────── */
 html {
   font-size: var(--text-base);
 }
@@ -88,7 +88,7 @@ code, pre {
 }
 
 
-/* ───────── 4. Layout primitives ───────── */
+/* ───────── Layout primitives ───────── */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
@@ -99,7 +99,7 @@ code, pre {
 .stack-tight > * + * { margin-top: var(--space-2); }
 
 
-/* ───────── 5. Components ─────────*/
+/* ───────── Components ─────────*/
 
 .app-header {
   background: var(--color-surface);
@@ -138,9 +138,119 @@ code, pre {
 }
 
 
-/* ───────── 6. Utilities ───────── */
+/* ───────── Utilities ───────── */
 .text-muted { color: var(--color-text-muted); }
 .text-faint { color: var(--color-text-faint); }
 .text-sm    { font-size: var(--text-sm); }
 .mt-4       { margin-top: var(--space-4); }
 .mt-6       { margin-top: var(--space-6); }
+
+/* ───────── Auth pages ───────── */
+.auth-wrap {
+  max-width: 380px;
+  margin: var(--space-7) auto;
+}
+
+.auth-card {
+  padding: var(--space-6);
+}
+
+.auth-title {
+  margin-bottom: var(--space-1);
+}
+
+
+/* ───────── Forms ───────── */
+.field__label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-bottom: var(--space-1);
+  color: var(--color-text);
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-base);
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.1s, box-shadow 0.1s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px rgba(30, 41, 59, 0.1);
+}
+
+
+/* ───────── Buttons ───────── */
+.btn {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  font-family: var(--font-sans);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.1s, border-color 0.1s;
+}
+
+.btn--primary {
+  background: var(--color-brand);
+  color: var(--color-brand-text);
+}
+.btn--primary:hover {
+  background: var(--color-brand-hover);
+  text-decoration: none;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+.btn--ghost:hover {
+  background: var(--color-subtle);
+  text-decoration: none;
+}
+
+
+/* ───────── Alerts ───────── */
+.alert {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  border: 1px solid;
+}
+
+.alert--danger {
+  background: #fef2f2;
+  color: #991b1b;
+  border-color: #fecaca;
+}
+
+.alert--success {
+  background: #f0fdf4;
+  color: #166534;
+  border-color: #bbf7d0;
+}
+.logout-form {
+  display: inline;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--color-info);
+  cursor: pointer;
+}
+.btn-link:hover { text-decoration: underline; }
