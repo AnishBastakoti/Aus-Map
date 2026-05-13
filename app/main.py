@@ -6,6 +6,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from app.config import settings
+from app.auth.middleware import AuthMiddleware
 
 
 # Where this file lives on disk — used to find templates and static folders
@@ -16,6 +17,9 @@ app = FastAPI(
     title=settings.app_name,
     debug=(settings.app_env == "development"),
 )
+
+# Add our custom authentication middleware to the app. This will run on every request.
+app.add_middleware(AuthMiddleware)
 
 # Serve files from app/static/ at the URL prefix /static
 # So app/static/css/app.css becomes available at /static/css/app.css
